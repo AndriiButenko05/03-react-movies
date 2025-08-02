@@ -39,6 +39,7 @@ export default function App() {
   }
   function closeModal() {
     setIsModalOpen(false);
+    setMovie(null)
   }
   return (
     <div className={css.app}>
@@ -47,7 +48,7 @@ export default function App() {
       {isLoading && <Loader></Loader>}
       {isError && <ErrorMessage></ErrorMessage>}
       {movies.length > 0 && <MovieGrid movies={movies} onSelect={openModal} />}
-      {isModalOpen && movie && (
+      {movie && (
         <MovieModal onClose={closeModal} movie={movie} />
       )}
     </div>

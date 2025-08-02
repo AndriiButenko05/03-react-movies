@@ -8,7 +8,7 @@ interface GetMoviesResponse{
   results: Movie[]
 }
 
-export default async function fetchMovies (title: string) {
+export default async function fetchMovies (title: string): Promise<Movie[]> {
     const response = await axios.get<GetMoviesResponse>(`${url}&query=${title}`)
     return response.data.results;
 }
